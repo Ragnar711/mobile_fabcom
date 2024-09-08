@@ -12,49 +12,54 @@ import { useTheme } from "@mui/material/styles";
 import logo from "../assets/img/logo.png";
 import PersonIcon from "@mui/icons-material/Person";
 const NavBar: React.FC = () => {
-  const navigate = useNavigate();
-  const { toggleSidebar } = useSidebar();
-  const theme = useTheme();
+    const navigate = useNavigate();
+    const { toggleSidebar } = useSidebar();
+    const theme = useTheme();
 
-  const handleLoginClick = () => {
-    navigate("/auth/sign-in");
-  };
+    const handleLoginClick = () => {
+        navigate("/auth/sign-in");
+    };
 
-  return (
-    <Box sx={{ flexGrow: 1 }}>
-      <AppBar
-        position="static"
-        sx={{ backgroundColor: theme.palette.secondary.light }}
-      >
-        <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            <img
-              src={logo}
-              style={{
-                height: "40px",
-                marginTop: "20px",
-              }}
-            />
-          </Typography>
-          <Box sx={{ display: "flex", alignItems: "center" }}>
-            <IconButton
-              size="large"
-              edge="end"
-              color="inherit"
-              aria-label="menu"
-              sx={{ ml: 2 }}
-              onClick={toggleSidebar}
+    return (
+        <Box sx={{ flexGrow: 1 }}>
+            <AppBar
+                position="static"
+                sx={{ backgroundColor: theme.palette.secondary.light }}
             >
-              <MenuIcon />
-            </IconButton>
-            <Button color="inherit" onClick={handleLoginClick}>
-              <PersonIcon />
-            </Button>
-          </Box>
-        </Toolbar>
-      </AppBar>
-    </Box>
-  );
+                <Toolbar>
+                    <Typography
+                        variant="h6"
+                        component="div"
+                        sx={{ flexGrow: 1 }}
+                    >
+                        <img
+                            src={logo}
+                            style={{
+                                height: "40px",
+                                marginTop: "20px",
+                            }}
+                            alt="Logo"
+                        />
+                    </Typography>
+                    <Box sx={{ display: "flex", alignItems: "center" }}>
+                        <IconButton
+                            size="large"
+                            edge="end"
+                            color="inherit"
+                            aria-label="menu"
+                            sx={{ ml: 2 }}
+                            onClick={toggleSidebar}
+                        >
+                            <MenuIcon />
+                        </IconButton>
+                        <Button color="inherit" onClick={handleLoginClick}>
+                            <PersonIcon />
+                        </Button>
+                    </Box>
+                </Toolbar>
+            </AppBar>
+        </Box>
+    );
 };
 
 export default NavBar;
