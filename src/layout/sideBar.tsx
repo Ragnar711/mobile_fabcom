@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Box from "@mui/material/Box";
 import Drawer from "@mui/material/Drawer";
 import List from "@mui/material/List";
@@ -12,11 +12,22 @@ import MailIcon from "@mui/icons-material/Mail";
 import { useSidebar } from "./SidebarContext";
 import person from "../assets/img/person.png";
 import diconnect from "../assets/img/disconnect.png";
+import { useNavigate } from "react-router-dom";
 
 import { Typography } from "@mui/material";
 
 const SideBar: React.FC = () => {
     const { open, toggleSidebar } = useSidebar();
+    const navigate = useNavigate();
+    const data = sessionStorage.getItem("user");
+    const parsedData = JSON.parse(data || "{}");
+    const user = parsedData.user;
+
+    useEffect(() => {
+        if (!user) {
+            navigate("/auth");
+        }
+    }, [navigate, user]);
 
     const DrawerList = (
         <Box
@@ -43,9 +54,13 @@ const SideBar: React.FC = () => {
             />
             <Typography
                 variant="body2"
-                sx={{ color: "white", marginBottom: 2, marginLeft: 8 }}
+                sx={{
+                    color: "white",
+                    marginBottom: 2,
+                    marginLeft: 8,
+                }}
             >
-                Mohamed Ahmed
+                {`${user?.prenom ?? ""} ${user?.nom ?? ""}`}
             </Typography>
             <Divider sx={{ bgcolor: "yellow" }} />
             <List sx={{ marginTop: 10, marginLeft: 5 }}>
@@ -74,6 +89,11 @@ const SideBar: React.FC = () => {
                     position: "absolute",
                     bottom: 20,
                     marginLeft: 12,
+                }}
+                onClick={() => {
+                    sessionStorage.removeItem("token");
+                    sessionStorage.removeItem("user");
+                    window.location.href = "/auth";
                 }}
             />
         </Box>
