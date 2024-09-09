@@ -49,10 +49,9 @@ const OfLigneCard = ({ data }) => {
                         />{" "}
                     </Box>
                     <Box sx={{ minWidth: 35 }}>
-                        <Typography
-                            variant="body2"
-                            color="text.secondary"
-                        >{`${Math.round(50)}%`}</Typography>
+                        <Typography variant="body2" color="text.secondary">{`${
+                            ((data.QP ?? 0) / (data.QO ?? 0)) * 100
+                        }%`}</Typography>
                     </Box>
                 </Box>
                 <Typography variant="body2" sx={{ fontSize: "0.75rem" }}>

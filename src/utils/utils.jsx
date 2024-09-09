@@ -3,7 +3,7 @@ export const calculateAverageKPI = (data, kpi) => {
     for (const machine of data) {
         total += machine?.data?.KPIs?.[kpi] ?? 0;
     }
-    return total / data.length;
+    return (total / data.length).toFixed(0);
 };
 
 export function getPoste() {

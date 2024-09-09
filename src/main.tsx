@@ -7,7 +7,7 @@ import HomePage from "./layout/homePage.tsx";
 import LoginPage from "./layout/loginPage.tsx";
 import { SidebarProvider } from "./layout/SidebarContext.tsx";
 import SideBar from "./layout/sideBar.tsx";
-import { NotFoundPage } from "./pages/notFoundPage.tsx";
+
 ReactDOM.createRoot(document.getElementById("root")!).render(
     <ThemeProvider theme={mainTheme}>
         <React.StrictMode>
@@ -18,7 +18,7 @@ ReactDOM.createRoot(document.getElementById("root")!).render(
                     <Routes>
                         <Route path="/auth/*" element={<LoginPage />} />
                         <Route path="/uap/*" element={<HomePage />} />
-                        <Route path="*" element={<NotFoundPage />} />
+                        <Route path="*" element={<LoginPage />} />
                     </Routes>
                 </BrowserRouter>
             </SidebarProvider>

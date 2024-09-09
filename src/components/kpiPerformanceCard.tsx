@@ -64,7 +64,7 @@ const KpiPerformanceCard = ({ data }) => {
                         <Grid item xs={2} container justifyContent="flex-end">
                             <Box sx={valueStyle}>
                                 <Typography variant="body2">
-                                    {data?.TRS?.toFixed(0)}%
+                                    {Number(data?.TRS ?? 0).toFixed(0)}%
                                 </Typography>
                             </Box>
                         </Grid>
@@ -82,7 +82,7 @@ const KpiPerformanceCard = ({ data }) => {
                         <Grid item xs={2} container justifyContent="flex-end">
                             <Box sx={valueStyle}>
                                 <Typography variant="body2">
-                                    {data?.TP?.toFixed(0)}%
+                                    {Number(data?.TP ?? 0).toFixed(0)}%
                                 </Typography>
                             </Box>
                         </Grid>
@@ -100,7 +100,7 @@ const KpiPerformanceCard = ({ data }) => {
                         <Grid item xs={2} container justifyContent="flex-end">
                             <Box sx={valueStyle}>
                                 <Typography variant="body2">
-                                    {data?.TD?.toFixed(0)}%
+                                    {Number(data?.TD ?? 0).toFixed(0)}%
                                 </Typography>
                             </Box>
                         </Grid>
@@ -118,7 +118,7 @@ const KpiPerformanceCard = ({ data }) => {
                         <Grid item xs={2} container justifyContent="flex-end">
                             <Box sx={valueStyle}>
                                 <Typography variant="body2">
-                                    {data?.TQ?.toFixed(0)}%
+                                    {Number(data?.TQ ?? 0).toFixed(0)}%
                                 </Typography>
                             </Box>
                         </Grid>
@@ -136,7 +136,7 @@ const KpiPerformanceCard = ({ data }) => {
                         <Grid item xs={2} container justifyContent="flex-end">
                             <Box sx={valueStyle}>
                                 <Typography variant="body2">
-                                    {data?.TDech?.toFixed(0)}%
+                                    {Number(data?.TDech ?? 0).toFixed(0)}%
                                 </Typography>
                             </Box>
                         </Grid>

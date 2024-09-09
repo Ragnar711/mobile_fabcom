@@ -111,11 +111,11 @@ const UapList = () => {
     }
     QD = QD / data.length;
 
-    machineData["UAP-Assemblage"].KPIs.TRS = TRS.toFixed(0);
-    machineData["UAP-Assemblage"].KPIs.TP = TP.toFixed(0);
-    machineData["UAP-Assemblage"].KPIs.TD = TD.toFixed(0);
-    machineData["UAP-Assemblage"].KPIs.TQ = TQ.toFixed(0);
-    machineData["UAP-Assemblage"].KPIs.Tde = TDech.toFixed(0);
+    machineData["UAP-Assemblage"].KPIs.TRS = TRS;
+    machineData["UAP-Assemblage"].KPIs.TP = TP;
+    machineData["UAP-Assemblage"].KPIs.TD = TD;
+    machineData["UAP-Assemblage"].KPIs.TQ = TQ;
+    machineData["UAP-Assemblage"].KPIs.Tde = TDech;
     machineData["UAP-Assemblage"].Quantities["Qté Conf  [batterie]"] = QP;
     machineData["UAP-Assemblage"].Quantities["Qté NC [batterie]"] = QNC;
     machineData["UAP-Assemblage"].Quantities["Qté déchet [Kg]"] = QD;
