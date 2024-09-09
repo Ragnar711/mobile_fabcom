@@ -10,10 +10,8 @@ import {
 import ofIcon from "../../assets/img/of.png";
 
 import GridItem from "../uap/gridItem";
-interface OfCardProps {
-    data: any;
-}
-const OfLigneCard = ({ data }: OfCardProps) => {
+
+const OfLigneCard = ({ data }) => {
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader
@@ -47,7 +45,7 @@ const OfLigneCard = ({ data }: OfCardProps) => {
                             sx={{
                                 height: "10px",
                             }}
-                            value={50}
+                            value={((data.QP ?? 0) / (data.QO ?? 0)) * 100}
                         />{" "}
                     </Box>
                     <Box sx={{ minWidth: 35 }}>
@@ -66,22 +64,22 @@ const OfLigneCard = ({ data }: OfCardProps) => {
                     <GridItem
                         title="N°OF"
                         subtitle="Numéro de l’ordre de fabrication"
-                        value={(data?.["N°OF"] ?? "").toString()}
+                        value={data?.NOF ?? ""}
                     />
                     <GridItem
                         title="Réf Art"
                         subtitle="Référence de l’article à réaliser"
-                        value={(data?.["Réf Art"] ?? "").toString()}
+                        value={data?.Article ?? ""}
                     />
                     <GridItem
                         title="Qté Obj"
                         subtitle="Quantité objectif à réaliser"
-                        value={(data?.["Qté Obj"] ?? "").toString()}
+                        value={(data?.QO ?? 0).toString()}
                     />
                     <GridItem
                         title="Production"
                         subtitle="Quantité réalisée jusqu’à l’instant"
-                        value={(data?.["Production"] ?? "").toString()}
+                        value={(data?.QP ?? 0).toString()}
                     />
                 </Grid>
             </CardContent>

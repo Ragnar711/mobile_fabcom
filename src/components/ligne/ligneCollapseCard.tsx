@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState, useEffect } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -16,7 +16,7 @@ import KpiPerformanceCard from "../kpiPerformanceCard";
 import { useTheme } from "@mui/material/styles";
 import OfLigneCard from "./oFLigneCard";
 import ProcessLigneCard from "./processLigneCard";
-import AlerteLigneCard from "./alerteLigneCard";
+import { getPoste } from "../../utils/utils";
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -28,8 +28,25 @@ interface CollapseCardProps {
     image: string;
     backgroundColor: string;
     route: string;
-    data: any;
+    machine: string;
 }
+
+type Data = {
+    KPIs: {
+        TRS: number;
+        TP: number;
+        TD: number;
+        TQ: number;
+        TDech: number;
+    };
+    OF: {
+        Article: string;
+        NOF: string;
+        QD: number;
+        QO: number;
+        QP: number;
+    };
+};
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
     const { expand, ...other } = props;
@@ -48,18 +65,36 @@ export default function LigneCollapseCard({
     backgroundColor,
     image,
     route,
-    data,
+    machine,
 }: CollapseCardProps) {
     const theme = useTheme();
-
-    const [expanded, setExpanded] = React.useState(false);
+    const [data, setData] = useState<Data>();
+    const [expanded, setExpanded] = useState(false);
     const navigate = useNavigate();
+
+    useEffect(() => {
+        const fetchMachineData = async () => {
+            try {
+                const res = await fetch(
+                    `http://${window.location.hostname}:3001/api/v1/machine/${machine}`
+                );
+                const resData = await res.json();
+                setData(resData);
+            } catch (error) {
+                console.error(error);
+            }
+        };
+
+        fetchMachineData();
+    }, [machine]);
+
     const handleClick = () => {
         navigate(route);
     };
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
     return (
         <Container>
             <Card
@@ -195,7 +230,7 @@ export default function LigneCollapseCard({
                         </IconButton>
                     ) : (
                         <Typography variant="body2" sx={{ fontSize: "0.6rem" }}>
-                            Poste
+                            Poste: {getPoste()}
                         </Typography>
                     )}
                     <ExpandMore
@@ -227,8 +262,7 @@ export default function LigneCollapseCard({
                     >
                         <OfLigneCard data={data?.OF} />
                         <KpiPerformanceCard data={data?.KPIs} />
-                        <ProcessLigneCard data={data?.Process} />
-                        <AlerteLigneCard data={data?.alert} />
+                        <ProcessLigneCard />
                     </CardContent>
                 </Collapse>
             </Card>

@@ -3,7 +3,6 @@ import { useTheme } from "@mui/material/styles";
 import assemblageImg from "../assets/img/mach.png";
 import { Container, Grid } from "@mui/material";
 
-const data = {};
 const Ligne = () => {
     const theme = useTheme();
     return (
@@ -11,15 +10,15 @@ const Ligne = () => {
             <Grid rowSpacing={15}>
                 <Grid>
                     <LigneCollapseCard
-                        title={"Assemblage"}
+                        title={"TBS"}
                         subTitle={"Ligne"}
                         image={assemblageImg}
-                        backgroundColor={theme.palette.error.main}
+                        backgroundColor={theme.palette.success.main}
                         route="/uap/ligne"
-                        data={data}
+                        machine={"tbs"}
                     />
                 </Grid>
-                <Grid>
+                {/* <Grid>
                     <LigneCollapseCard
                         title={"Assemblage"}
                         subTitle={"Ligne"}
@@ -38,7 +37,7 @@ const Ligne = () => {
                         route="/uap/ligne"
                         data={data}
                     />
-                </Grid>
+                </Grid> */}
             </Grid>
         </Container>
     );

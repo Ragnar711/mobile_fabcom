@@ -3,7 +3,7 @@ import ofIcon from "../../assets/img/of.png";
 import GridItem from "./gridItem";
 
 interface OfPerformanceCardProps {
-    data: any;
+    data;
     uapTitle: string;
 }
 
@@ -35,12 +35,12 @@ const OFUapCard = ({ data, uapTitle }: OfPerformanceCardProps) => {
             <CardContent>
                 <>
                     <Grid container spacing={1}>
-                        {Object.entries(data || {}).map(([key, value]) => (
+                        {Object.entries(data ?? {}).map(([key, value]) => (
                             <GridItem
                                 key={key}
                                 title={key}
                                 subtitle={"ligne d'" + uapTitle + " " + key}
-                                value={(value as number).toString()}
+                                value={(value as number).toString() ?? ""}
                             />
                         ))}
                     </Grid>

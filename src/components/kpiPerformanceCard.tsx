@@ -22,11 +22,7 @@ const valueStyle = {
     textOverflow: "ellipsis", // Handle overflow text gracefully
 };
 
-interface KpiPerformanceCardProps {
-    data: any;
-}
-
-const KpiPerformanceCard = ({ data }: KpiPerformanceCardProps) => {
+const KpiPerformanceCard = ({ data }) => {
     return (
         <Card sx={{ maxWidth: 345 }}>
             <CardHeader
@@ -68,7 +64,7 @@ const KpiPerformanceCard = ({ data }: KpiPerformanceCardProps) => {
                         <Grid item xs={2} container justifyContent="flex-end">
                             <Box sx={valueStyle}>
                                 <Typography variant="body2">
-                                    {data?.TRS}%
+                                    {data?.TRS?.toFixed(0)}%
                                 </Typography>
                             </Box>
                         </Grid>
@@ -86,7 +82,7 @@ const KpiPerformanceCard = ({ data }: KpiPerformanceCardProps) => {
                         <Grid item xs={2} container justifyContent="flex-end">
                             <Box sx={valueStyle}>
                                 <Typography variant="body2">
-                                    {data?.TP}%
+                                    {data?.TP?.toFixed(0)}%
                                 </Typography>
                             </Box>
                         </Grid>
@@ -104,7 +100,7 @@ const KpiPerformanceCard = ({ data }: KpiPerformanceCardProps) => {
                         <Grid item xs={2} container justifyContent="flex-end">
                             <Box sx={valueStyle}>
                                 <Typography variant="body2">
-                                    {data?.TD}%
+                                    {data?.TD?.toFixed(0)}%
                                 </Typography>
                             </Box>
                         </Grid>
@@ -122,7 +118,7 @@ const KpiPerformanceCard = ({ data }: KpiPerformanceCardProps) => {
                         <Grid item xs={2} container justifyContent="flex-end">
                             <Box sx={valueStyle}>
                                 <Typography variant="body2">
-                                    {data?.TQ}%
+                                    {data?.TQ?.toFixed(0)}%
                                 </Typography>
                             </Box>
                         </Grid>
@@ -140,7 +136,7 @@ const KpiPerformanceCard = ({ data }: KpiPerformanceCardProps) => {
                         <Grid item xs={2} container justifyContent="flex-end">
                             <Box sx={valueStyle}>
                                 <Typography variant="body2">
-                                    {data?.Tde}%
+                                    {data?.TDech?.toFixed(0)}%
                                 </Typography>
                             </Box>
                         </Grid>

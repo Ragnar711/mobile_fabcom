@@ -1,4 +1,4 @@
-import * as React from "react";
+import { useState } from "react";
 import { styled } from "@mui/material/styles";
 import Card from "@mui/material/Card";
 import CardHeader from "@mui/material/CardHeader";
@@ -29,7 +29,7 @@ interface CollapseCardProps {
     image: string;
     backgroundColor: string;
     route: string;
-    data: any;
+    data;
 }
 
 const ExpandMore = styled((props: ExpandMoreProps) => {
@@ -53,7 +53,7 @@ export default function UapCollapseCard({
 }: CollapseCardProps) {
     // const theme = useTheme();
 
-    const [expanded, setExpanded] = React.useState(false);
+    const [expanded, setExpanded] = useState(false);
     const navigate = useNavigate();
     const handleClick = () => {
         navigate(route);
@@ -61,6 +61,7 @@ export default function UapCollapseCard({
     const handleExpandClick = () => {
         setExpanded(!expanded);
     };
+
     return (
         <Container>
             <Card
@@ -125,7 +126,7 @@ export default function UapCollapseCard({
                             src={warningTriangle}
                             width={50}
                             height={35}
-                            alt="warningTriangle"
+                            alt="warning"
                         />
                     </IconButton>
                     <ExpandMore
