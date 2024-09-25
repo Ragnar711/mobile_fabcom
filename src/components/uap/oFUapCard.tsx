@@ -33,18 +33,16 @@ const OFUapCard = ({ data, uapTitle }: OfPerformanceCardProps) => {
                 }}
             />
             <CardContent>
-                <>
-                    <Grid container spacing={1}>
-                        {Object.entries(data ?? {}).map(([key, value]) => (
-                            <GridItem
-                                key={key}
-                                title={key}
-                                subtitle={"ligne d'" + uapTitle + " " + key}
-                                value={(value as number).toString() ?? ""}
-                            />
-                        ))}
-                    </Grid>
-                </>
+                <Grid container spacing={1}>
+                    {Object.entries(data ?? {}).map(([key, value]) => (
+                        <GridItem
+                            key={key}
+                            title={key}
+                            subtitle={"ligne d'" + uapTitle + " " + key}
+                            value={(value as number).toString() ?? ""}
+                        />
+                    ))}
+                </Grid>
             </CardContent>
         </Card>
     );

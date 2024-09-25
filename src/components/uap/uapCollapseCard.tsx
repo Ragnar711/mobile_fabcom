@@ -10,14 +10,11 @@ import IconButton, { IconButtonProps } from "@mui/material/IconButton";
 import Typography from "@mui/material/Typography";
 import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
 import { Box, Container } from "@mui/material";
-import warningTriangle from "../../assets/img/alert.png";
 import { useNavigate } from "react-router-dom";
 import KpiPerformanceCard from "../kpiPerformanceCard";
 import OFUapCard from "./oFUapCard";
 import QteUapCard from "./qteUapCard";
 import EngUapCard from "./engUapCard";
-
-// import { useTheme } from "@mui/material/styles";
 
 interface ExpandMoreProps extends IconButtonProps {
     expand: boolean;
@@ -50,9 +47,7 @@ export default function UapCollapseCard({
     image,
     route,
     data,
-}: CollapseCardProps) {
-    // const theme = useTheme();
-
+}: Readonly<CollapseCardProps>) {
     const [expanded, setExpanded] = useState(false);
     const navigate = useNavigate();
     const handleClick = () => {
@@ -121,14 +116,6 @@ export default function UapCollapseCard({
                     }}
                 />
                 <CardActions disableSpacing>
-                    <IconButton aria-label="add to favorites">
-                        <img
-                            src={warningTriangle}
-                            width={50}
-                            height={35}
-                            alt="warning"
-                        />
-                    </IconButton>
                     <ExpandMore
                         expand={expanded}
                         onClick={handleExpandClick}

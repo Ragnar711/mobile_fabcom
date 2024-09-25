@@ -31,36 +31,30 @@ const QteUapCard = ({ data }: OfPerformanceCardProps) => {
                 }}
             />
             <CardContent>
-                <>
-                    <Grid container spacing={1}>
-                        <GridItem
-                            title="Qté Conf  [batterie]"
-                            subtitle="Quantité totale produites conformes"
-                            value={(
-                                data?.["Qté Conf  [batterie]"] ?? ""
-                            ).toString()}
-                        />
-                        <GridItem
-                            title="Qté NC [batterie]"
-                            subtitle="Quantité totale non conformes"
-                            value={(
-                                data?.["Qté NC [batterie]"] ?? ""
-                            ).toString()}
-                        />
-                        <GridItem
-                            title="Qté Ret [batterie]"
-                            subtitle="Quantité totale retouchée"
-                            value={(
-                                data?.["Qté Ret [batterie]"] ?? ""
-                            ).toString()}
-                        />
-                        <GridItem
-                            title="Qté déchet [Kg]"
-                            subtitle="Quantité déchet déclarée vers recyclage"
-                            value={(data?.["Qté déchet [Kg]"] ?? "").toString()}
-                        />
-                    </Grid>
-                </>
+                <Grid container spacing={1}>
+                    <GridItem
+                        title="Qté Conf  [batterie]"
+                        subtitle="Quantité totale produites conformes"
+                        value={(
+                            data?.["Qté Conf  [batterie]"] ?? ""
+                        ).toString()}
+                    />
+                    <GridItem
+                        title="Qté NC [batterie]"
+                        subtitle="Quantité totale non conformes"
+                        value={(data?.["Qté NC [batterie]"] ?? "").toString()}
+                    />
+                    <GridItem
+                        title="Qté Ret [batterie]"
+                        subtitle="Quantité totale retouchée"
+                        value={(data?.["Qté Ret [batterie]"] ?? "").toString()}
+                    />
+                    <GridItem
+                        title="Qté déchet [Kg]"
+                        subtitle="Quantité déchet déclarée vers recyclage"
+                        value={(data?.["Qté déchet [Kg]"] ?? "").toString()}
+                    />
+                </Grid>
             </CardContent>
         </Card>
     );

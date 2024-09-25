@@ -4,20 +4,22 @@ import Box from "@mui/material/Box";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import Button from "@mui/material/Button";
-import IconButton from "@mui/material/IconButton";
-import MenuIcon from "@mui/icons-material/Menu";
 import { useNavigate } from "react-router-dom";
-import { useSidebar } from "./SidebarContext";
 import { useTheme } from "@mui/material/styles";
 import logo from "../assets/img/logo.png";
 import PersonIcon from "@mui/icons-material/Person";
+import { IoMdArrowRoundBack } from "react-icons/io";
+
 const NavBar: React.FC = () => {
     const navigate = useNavigate();
-    const { toggleSidebar } = useSidebar();
     const theme = useTheme();
 
     const handleLoginClick = () => {
         navigate("/auth/sign-in");
+    };
+
+    const handleBackClick = () => {
+        window.history.back();
     };
 
     return (
@@ -42,16 +44,10 @@ const NavBar: React.FC = () => {
                         />
                     </Typography>
                     <Box sx={{ display: "flex", alignItems: "center" }}>
-                        <IconButton
-                            size="large"
-                            edge="end"
-                            color="inherit"
-                            aria-label="menu"
-                            sx={{ ml: 2 }}
-                            onClick={toggleSidebar}
-                        >
-                            <MenuIcon />
-                        </IconButton>
+                        <IoMdArrowRoundBack
+                            color="black"
+                            onClick={() => handleBackClick()}
+                        />
                         <Button color="inherit" onClick={handleLoginClick}>
                             <PersonIcon />
                         </Button>

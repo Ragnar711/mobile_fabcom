@@ -48,100 +48,98 @@ const KpiPerformanceCard = ({ data }) => {
                 }}
             />
             <CardContent>
-                <>
-                    <Grid container spacing={1}>
-                        {/* First Line TRS */}
-                        <Grid item xs={10}>
-                            <Box>
-                                <Typography variant="subtitle2" sx={titleStyle}>
-                                    TRS
-                                </Typography>
-                                <Typography variant="caption">
-                                    Taux de rendement synthétique
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={2} container justifyContent="flex-end">
-                            <Box sx={valueStyle}>
-                                <Typography variant="body2">
-                                    {Number(data?.TRS ?? 0).toFixed(0)}%
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        {/* Second Line TP */}
-                        <Grid item xs={10}>
-                            <Box>
-                                <Typography variant="subtitle2" sx={titleStyle}>
-                                    TP
-                                </Typography>
-                                <Typography variant="caption">
-                                    Taux de performance
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={2} container justifyContent="flex-end">
-                            <Box sx={valueStyle}>
-                                <Typography variant="body2">
-                                    {Number(data?.TP ?? 0).toFixed(0)}%
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        {/* Third Line TD */}
-                        <Grid item xs={10}>
-                            <Box>
-                                <Typography variant="subtitle2" sx={titleStyle}>
-                                    TD
-                                </Typography>
-                                <Typography variant="caption">
-                                    Taux de disponibilité
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={2} container justifyContent="flex-end">
-                            <Box sx={valueStyle}>
-                                <Typography variant="body2">
-                                    {Number(data?.TD ?? 0).toFixed(0)}%
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        {/* 4th Line TQ */}
-                        <Grid item xs={10}>
-                            <Box>
-                                <Typography variant="subtitle2" sx={titleStyle}>
-                                    TQ
-                                </Typography>
-                                <Typography variant="caption">
-                                    Taux de qualité
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={2} container justifyContent="flex-end">
-                            <Box sx={valueStyle}>
-                                <Typography variant="body2">
-                                    {Number(data?.TQ ?? 0).toFixed(0)}%
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        {/* 5th Line Tde */}
-                        <Grid item xs={10}>
-                            <Box>
-                                <Typography variant="subtitle2" sx={titleStyle}>
-                                    Tde
-                                </Typography>
-                                <Typography variant="caption">
-                                    Taux déchet
-                                </Typography>
-                            </Box>
-                        </Grid>
-                        <Grid item xs={2} container justifyContent="flex-end">
-                            <Box sx={valueStyle}>
-                                <Typography variant="body2">
-                                    {Number(data?.TDech ?? 0).toFixed(0)}%
-                                </Typography>
-                            </Box>
-                        </Grid>
+                <Grid container spacing={1}>
+                    {/* First Line TRS */}
+                    <Grid item xs={10}>
+                        <Box>
+                            <Typography variant="subtitle2" sx={titleStyle}>
+                                TRS
+                            </Typography>
+                            <Typography variant="caption">
+                                Taux de rendement synthétique
+                            </Typography>
+                        </Box>
                     </Grid>
-                </>
+                    <Grid item xs={2} container justifyContent="flex-end">
+                        <Box sx={valueStyle}>
+                            <Typography variant="body2">
+                                {Number(data?.TRS ?? 0).toFixed(0)}%
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    {/* Second Line TP */}
+                    <Grid item xs={10}>
+                        <Box>
+                            <Typography variant="subtitle2" sx={titleStyle}>
+                                TP
+                            </Typography>
+                            <Typography variant="caption">
+                                Taux de performance
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={2} container justifyContent="flex-end">
+                        <Box sx={valueStyle}>
+                            <Typography variant="body2">
+                                {Number(data?.TP ?? 0).toFixed(0)}%
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    {/* Third Line TD */}
+                    <Grid item xs={10}>
+                        <Box>
+                            <Typography variant="subtitle2" sx={titleStyle}>
+                                TD
+                            </Typography>
+                            <Typography variant="caption">
+                                Taux de disponibilité
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={2} container justifyContent="flex-end">
+                        <Box sx={valueStyle}>
+                            <Typography variant="body2">
+                                {Number(data?.TD ?? 0).toFixed(0)}%
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    {/* 4th Line TQ */}
+                    <Grid item xs={10}>
+                        <Box>
+                            <Typography variant="subtitle2" sx={titleStyle}>
+                                TQ
+                            </Typography>
+                            <Typography variant="caption">
+                                Taux de qualité
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={2} container justifyContent="flex-end">
+                        <Box sx={valueStyle}>
+                            <Typography variant="body2">
+                                {Number(data?.TQ ?? 0).toFixed(0)}%
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    {/* 5th Line Tde */}
+                    <Grid item xs={10}>
+                        <Box>
+                            <Typography variant="subtitle2" sx={titleStyle}>
+                                Tde
+                            </Typography>
+                            <Typography variant="caption">
+                                Taux déchet
+                            </Typography>
+                        </Box>
+                    </Grid>
+                    <Grid item xs={2} container justifyContent="flex-end">
+                        <Box sx={valueStyle}>
+                            <Typography variant="body2">
+                                {Number(data?.TDech ?? 0).toFixed(0)}%
+                            </Typography>
+                        </Box>
+                    </Grid>
+                </Grid>
             </CardContent>
         </Card>
     );

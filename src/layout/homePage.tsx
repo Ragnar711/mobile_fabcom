@@ -11,7 +11,7 @@ const HomePage: React.FC = () => {
                     ({ layout, pages }) =>
                         layout === "uap" &&
                         pages.map(({ path, element }) => (
-                            <Route path={path} element={element} />
+                            <Route path={path} element={element} key={path} />
                         ))
                 )}
             </Routes>
