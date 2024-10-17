@@ -27,6 +27,7 @@ interface CollapseCardProps {
     backgroundColor: string;
     route: string;
     machine: string;
+    port: number;
 }
 
 type Data = {
@@ -64,6 +65,7 @@ export default function LigneCollapseCard({
     image,
     route,
     machine,
+    port,
 }: Readonly<CollapseCardProps>) {
     const theme = useTheme();
     const [data, setData] = useState<Data>();
@@ -74,7 +76,7 @@ export default function LigneCollapseCard({
         const fetchMachineData = async () => {
             try {
                 const res = await fetch(
-                    `http://${window.location.hostname}:3001/api/v1/machine/${machine}`
+                    `http://${window.location.hostname}:${port}/api/v1/machine/${machine}`
                 );
                 const resData = await res.json();
                 setData(resData);
@@ -84,7 +86,7 @@ export default function LigneCollapseCard({
         };
 
         fetchMachineData();
-    }, [machine]);
+    }, [machine, port]);
 
     const handleClick = () => {
         navigate(route);

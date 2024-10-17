@@ -15,29 +15,32 @@ const Ligne = () => {
                         image={assemblageImg}
                         backgroundColor={theme.palette.success.main}
                         route="/uap/ligne"
-                        machine={"tbs"}
-                    />
-                </Grid>
-                {/* <Grid>
-                    <LigneCollapseCard
-                        title={"Assemblage"}
-                        subTitle={"Ligne"}
-                        image={assemblageImg}
-                        backgroundColor={theme.palette.success.main}
-                        route="/uap/ligne"
-                        data={data}
+                        machine="tbs"
+                        port={3001}
                     />
                 </Grid>
                 <Grid>
                     <LigneCollapseCard
-                        title={"Assemblage"}
+                        title={"SOVEMA1"}
                         subTitle={"Ligne"}
                         image={assemblageImg}
-                        backgroundColor={theme.palette.warning.main}
+                        backgroundColor={theme.palette.success.main}
                         route="/uap/ligne"
-                        data={data}
+                        machine="sovema1"
+                        port={3002}
                     />
-                </Grid> */}
+                </Grid>
+                <Grid>
+                    <LigneCollapseCard
+                        title={"SOVEMA2"}
+                        subTitle={"Ligne"}
+                        image={assemblageImg}
+                        backgroundColor={theme.palette.success.main}
+                        route="/uap/ligne"
+                        machine="sovema2"
+                        port={3003}
+                    />
+                </Grid>
             </Grid>
         </Container>
     );
