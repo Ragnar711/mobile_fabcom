@@ -21,7 +21,7 @@ export default function LoginPage() {
         event.preventDefault(); // Prevent default form submission behavior
         try {
             const response = await axios.post(
-                "http://localhost:3000/api/v1/signin",
+                "http://192.168.100.121:3000/api/v1/signin",
                 {
                     matricule,
                     motDePasse: password,
