@@ -8,35 +8,34 @@ import Paper from "@mui/material/Paper";
 import logo from "../assets/img/logo.png";
 import { useNavigate } from "react-router-dom";
 import { useState } from "react";
-import axios from "redaxios";
 
 export default function LoginPage() {
     const [matricule, setMatricule] = useState("");
     const [password, setPassword] = useState("");
     const navigate = useNavigate();
 
-    const handleLoginClick = async (
-        event: React.MouseEvent<HTMLFormElement>
-    ) => {
-        event.preventDefault(); // Prevent default form submission behavior
-        try {
-            const response = await axios.post(
-                "http://192.168.100.121:3000/api/v1/signin",
-                {
-                    matricule,
-                    motDePasse: password,
-                }
-            );
-            if (response.status === 200) {
-                sessionStorage.setItem("user", JSON.stringify(response.data));
-                navigate("/uap");
-            } else {
-                console.error("Login failed:", response.statusText);
-            }
-        } catch (error) {
-            console.error("Network error:", error);
-        }
-    };
+    // const handleLoginClick = async (
+    //     event: React.MouseEvent<HTMLFormElement>
+    // ) => {
+    //     event.preventDefault(); // Prevent default form submission behavior
+    //     try {
+    //         const response = await axios.post(
+    //             "http://192.168.100.121:3000/api/v1/signin",
+    //             {
+    //                 matricule,
+    //                 motDePasse: password,
+    //             }
+    //         );
+    //         if (response.status === 200) {
+    //             sessionStorage.setItem("user", JSON.stringify(response.data));
+    //             navigate("/uap");
+    //         } else {
+    //             console.error("Login failed:", response.statusText);
+    //         }
+    //     } catch (error) {
+    //         console.error("Network error:", error);
+    //     }
+    // };
 
     return (
         <div>
@@ -81,7 +80,7 @@ export default function LoginPage() {
                         component="form"
                         noValidate
                         sx={{ mt: 1 }}
-                        onSubmit={handleLoginClick}
+                        onSubmit={() => navigate("/uap")}
                     >
                         <TextField
                             variant="outlined"
